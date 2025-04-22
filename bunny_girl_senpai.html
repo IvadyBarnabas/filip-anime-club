@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filip Anime Club</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Bunny Girl Senpai</h1>
+            <nav>
+                <a href="index.html">Főoldal</a>
+                <a href="#">Animék</a>
+                <a href="#">Kapcsolat</a>
+            </nav>
+            <img src="kepek/bunnyheader.png" alt="header">
+        </div>
+    </header>
+<main class="anime-main">
+    <div class="anime-info">
+        <img src="kepek/poster.png" alt="Bunny Girl Senpai">
+        <div class="anime-description">
+            <h2>Műfajok:</h2>
+            <p>Dráma, Romantikus, Misztikus</p>
+            <h2>Leírás:</h2>
+            <p>Sakuta Azusagawa találkozik egy láthatatlan lányjal, és próbál segíteni neki. Az anime számos érzelmi mélységet tár fel.</p>
+        </div>
+    </div>
+    <div class="select">
+        <label for="seasonSelect">Évad:</label>
+        <select id="seasonSelect" onchange="loadEpisodes()">
+            <option value="1">1. évad</option>
+            <!-- Itt lehet több évadot is hozzáadni -->
+        </select>
+
+        <label for="episodeSelect">Epizód:</label>
+        <select id="episodeSelect" onchange="loadVideo()">
+            <!-- Epizódok itt generálódnak -->
+        </select>
+
+        <iframe id="videoPlayer" src="" allowfullscreen></iframe>
+    </div>
+
+  <script>
+    const videoLinks = {
+      1: {
+        1: "//embed.indavideo.hu/player/video/7d3d4edab6", // Cseréld saját videa linkekre!
+        2: "//embed.indavideo.hu/player/video/683ae5d993",
+        3: "//embed.indavideo.hu/player/video/ed1f566cb5",
+        4: "//embed.indavideo.hu/player/video/02aa7d3fa3",
+        5: "//embed.indavideo.hu/player/video/c64abd9667",
+        6: "//embed.indavideo.hu/player/video/54d7df9ad9",
+        7: "//embed.indavideo.hu/player/video/0c88a1590f",
+        8: "//embed.indavideo.hu/player/video/e0eb68ed61",
+        9: "//embed.indavideo.hu/player/video/a2abbf2e92",
+        10: "//embed.indavideo.hu/player/video/6de82bfd81",
+        11: "//embed.indavideo.hu/player/video/c281f516b3",
+        12: "//embed.indavideo.hu/player/video/021f551c3a",
+        13: "//embed.indavideo.hu/player/video/1be2931fe3"
+      }
+    };
+
+    function loadEpisodes() {
+      const season = document.getElementById('seasonSelect').value;
+      const episodeSelect = document.getElementById('episodeSelect');
+      episodeSelect.innerHTML = '';
+      const episodes = videoLinks[season];
+      for (const ep in episodes) {
+        const option = document.createElement('option');
+        option.value = ep;
+        option.text = ep + '. rész';
+        episodeSelect.appendChild(option);
+      }
+      loadVideo(); // automatikusan betölti az elsőt
+    }
+
+    function loadVideo() {
+      const season = document.getElementById('seasonSelect').value;
+      const episode = document.getElementById('episodeSelect').value;
+      const videoUrl = videoLinks[season][episode];
+      document.getElementById('videoPlayer').src = videoUrl;
+    }
+
+    window.onload = loadEpisodes;
+  </script>
+</main>
+<footer>
+    <p>&copy; 2025 Anime Nézés</p>
+</footer>
+</body>
+</html>
