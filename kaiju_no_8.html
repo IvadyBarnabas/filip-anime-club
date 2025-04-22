@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filip Anime Club</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Kaijuu No 8</h1>
+            <nav>
+                <a href="index.html">Főoldal</a>
+                <a href="#">Animék</a>
+                <a href="#">Kapcsolat</a>
+            </nav>
+            <img src="kepek/kaijuno8header3.png" alt="header">
+        </div>
+    </header>
+<main class="anime-main">
+    <div class="anime-info">
+        <img src="kepek/kaijuno8poster2.png" alt="Bunny Girl Senpai">
+        <div class="anime-description">
+            <h2>Műfajok:</h2>
+            <p>Akció, Sci-Fi, Shounen</p>
+            <h2>Leírás:</h2>
+            <p>Egy világban, ahol a kaijuu-támadások mindennaposak, csak a Védelmi Erők képesek felvenni velük a harcot. Hibino Kafka, harmincas éveiben járó, kiégett férfi, a szörnyek tetemeinek takarításával tölti napjait, miközben arról álmodik, hogy egyszer ő is harcolhat. Amikor a fiatal Reno csatlakozik hozzájuk, Kafka önfeláldozása menti meg őket egy újabb támadás során. Ám a kórházban egy különös látogató mindent megváltoztat, és kezdetét veszi Kafka igazi története…</p>
+        </div>
+    </div>
+    <div class="select">
+        <label for="seasonSelect">Évad:</label>
+        <select id="seasonSelect" onchange="loadEpisodes()">
+            <option value="1">1. évad</option>
+            <!-- Itt lehet több évadot is hozzáadni -->
+        </select>
+
+        <label for="episodeSelect">Epizód:</label>
+        <select id="episodeSelect" onchange="loadVideo()">
+            <!-- Epizódok itt generálódnak -->
+        </select>
+
+        <iframe id="videoPlayer" src="" allowfullscreen></iframe>
+    </div>
+
+  <script>
+    const videoLinks = {
+      1: {
+        1: "//embed.indavideo.hu/player/video/0c44d69fa0", // Cseréld saját videa linkekre!
+        2: "//embed.indavideo.hu/player/video/0df2485fef",
+        3: "//embed.indavideo.hu/player/video/24a7cb6f3b",
+        4: "//embed.indavideo.hu/player/video/89197eb2a5",
+        5: "//embed.indavideo.hu/player/video/194e05430b",
+        6: "//embed.indavideo.hu/player/video/fe6e924ff4",
+        7: "//embed.indavideo.hu/player/video/a48cd03610",
+        8: "//embed.indavideo.hu/player/video/11acfbb956",
+        9: "//embed.indavideo.hu/player/video/c695a67da0",
+        10: "//embed.indavideo.hu/player/video/2cb143926a",
+        11: "//embed.indavideo.hu/player/video/eeae2c6245",
+        12: "//embed.indavideo.hu/player/video/3adfe95b18"
+      }
+    };
+
+    function loadEpisodes() {
+      const season = document.getElementById('seasonSelect').value;
+      const episodeSelect = document.getElementById('episodeSelect');
+      episodeSelect.innerHTML = '';
+      const episodes = videoLinks[season];
+      for (const ep in episodes) {
+        const option = document.createElement('option');
+        option.value = ep;
+        option.text = ep + '. rész';
+        episodeSelect.appendChild(option);
+      }
+      loadVideo(); // automatikusan betölti az elsőt
+    }
+
+    function loadVideo() {
+      const season = document.getElementById('seasonSelect').value;
+      const episode = document.getElementById('episodeSelect').value;
+      const videoUrl = videoLinks[season][episode];
+      document.getElementById('videoPlayer').src = videoUrl;
+    }
+
+    window.onload = loadEpisodes;
+  </script>
+</main>
+<footer>
+    <p>&copy; 2025 Anime Nézés</p>
+</footer>
+</body>
+</html>
