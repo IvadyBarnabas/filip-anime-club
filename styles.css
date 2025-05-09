@@ -159,6 +159,8 @@ nav a:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     padding: 20px;
     border-radius: 10px;
+    max-height: 700px;
+    max-width: 700px;
 }
 
 .anime-info img {
@@ -184,6 +186,7 @@ nav a:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     max-width: 700px;
     text-align: center;
+    max-height: 700px;
 }
 
 .select label {
