@@ -14,17 +14,21 @@
             <nav>
                 <a href="index.html">Főoldal</a>
                 <a href="#anime">Animék</a>
-                <a href="#">Kapcsolat</a>
+                <a href="#about">Rólunk</a>
+                <a href="#contact">Kapcsolat</a>
             </nav>
             <img src="kepek/kezdolapheader.png" alt="header">
         </div>
     </header>
 
     <main id="anime" class="main-content">
+        <h1>Üdvözlünk a Filip Anime Clubban!</h1>
         <h2>Válaszd ki a nézni kívánt animét!</h2>
-
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Keresés animére...">
+            <button onclick="searchAnime()">🔍</button>
+        </div>
         <div class="anime-grid">
-
             <div class="anime-block">
                 <a href="bunny_girl_senpai.html">
                     <img src="kepek/bunnygirlsenpaiposter.png" alt="Bunny Girl Senpai">
@@ -61,8 +65,18 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Anime Nézés</p>
+        <p>Filip Anime Club - Minden jog fenntartva</p>
     </footer>
+<script>
+function searchAnime() {
+    const input = document.getElementById("searchInput").value.toLowerCase();
+    const animeBlocks = document.querySelectorAll(".anime-block");
 
+    animeBlocks.forEach(block => {
+        const title = block.querySelector("h3").innerText.toLowerCase();
+        block.style.display = title.includes(input) ? "block" : "none";
+    });
+}
+</script>
 </body>
 </html>

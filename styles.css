@@ -69,8 +69,7 @@ nav {
     background-color: #333;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    position: relative;   
-    transition: background-color 0.3s ease;
+    position: relative;
 }
 
 nav a {
@@ -80,12 +79,14 @@ nav a {
     border-radius: 5px;
     text-align: center;
     font-size: 25px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.5s ease;
 }
 
 nav a:hover {
     color: #333;
     background-color: #ffcc00;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
 
 .main-content {
@@ -102,6 +103,45 @@ nav a:hover {
     margin-bottom: 40px;
 }
 
+.search-container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    max-width: 500px;
+    margin: 20px auto;
+    gap: 0;
+}
+
+.search-container input[type="text"] {
+    padding: 10px 15px;
+    border: 2px solid #ccc;
+    border-right: none;
+    border-radius: 25px 0 0 25px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+    width: 100%;
+    
+}
+
+.search-container input[type="text"]:focus {
+    border-color: #ffcc00;
+}
+
+.search-container button {
+    padding: 10px 15px;
+    background-color: #ffcc00;
+    border: 2px solid #ffcc00;
+    border-left: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 0 25px 25px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-container button:hover {
+    background-color: #eebe00;
+}
 
 .anime-grid {
     display: grid;
@@ -109,6 +149,7 @@ nav a:hover {
     gap: 30px;
     padding: 20px;
     max-width: 1200px;
+    margin: 0 auto;
 }
 
 .anime-block {
@@ -172,24 +213,6 @@ nav a:hover {
     text-transform: uppercase;
 }
 
-@media (max-width: 768px) {
-    .anime-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .anime-block {
-        padding: 15px;
-    }
-
-    header h1 {
-        font-size: 28px;
-    }
-
-    .main-content h2 {
-        font-size: 24px;
-    }
-}
 /*epizódok.html*/
 .anime-main {
     max-width: 1200px;
@@ -272,18 +295,60 @@ nav a:hover {
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
+
 /* Reszponzív beállítások */
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .anime-main {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-
     .anime-info, .episode-section {
-        width: 100%;
+        max-width: 100%;
+        padding: 10px;
     }
-
+    .anime-info h2 {
+        font-size: 20px;
+    }
+    .anime-info p {
+        font-size: 16px;
+    }
+    .anime-info ul {
+        font-size: 16px;
+    }
+    .anime-info li {
+        font-size: 16px;
+    }
+    .anime-info h3 {
+        font-size: 18px;
+    }
     .anime-info img {
         max-width: 90%;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }
+    .anime-info{
+        max-height: 100%;
+        overflow: auto;
+        margin: auto;
+        padding: 10px;
+    }
+}
+@media (max-width: 800px) {
+    .anime-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .anime-block {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .main-content h2 {
+        font-size: 24px;
     }
 }
