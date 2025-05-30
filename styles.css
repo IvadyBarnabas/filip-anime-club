@@ -1,3 +1,19 @@
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* Testreszabott scrollbar (modern böngészőkben) */
+body::-webkit-scrollbar {
+    width: 10px;
+}
+body::-webkit-scrollbar-track {
+    background: #f4f4f4;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #ffcc00;
+    border-radius: 10px;
+    border: 2px solid #f4f4f4;
+}
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
@@ -33,6 +49,9 @@ header h1 {
     color: white;
     text-align: center;
 }
+header a{
+    text-decoration: none;
+}
 
 .header-container {
     display: grid;
@@ -45,7 +64,7 @@ header h1 {
 }
 
 footer{
-    background-color: #333;
+    background-color: #222;
     color: white;
     text-align: center;
     color: white;
@@ -214,7 +233,45 @@ nav a:hover {
     font-weight: bold;
     text-transform: uppercase;
 }
+#about.about-section {
+    background-color: #222;
+    border: 2px solid #ffcc00;
+    color: #ffcc00;                
+    max-width: 900px;
+    margin: 60px auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(255, 204, 0, 0.3);
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
 
+#about.about-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 2px #000;
+}
+
+#about.about-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #ffe066;
+}
+@media (max-width: 800px) {
+    #about.about-section {
+        padding: 25px 15px;
+        margin: 40px 10px;
+    }
+    #about.about-section h2 {
+        font-size: 28px;
+    }
+    #about.about-section p {
+        font-size: 16px;
+    }
+}
 /*epizódok.html*/
 .anime-main {
     max-width: 1200px;
