@@ -31,7 +31,10 @@ header {
     height: 200px;                
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid #ffcc00; /* Border for the header */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Shadow for the header */
 }
+
 
 header img {
     position: absolute;
@@ -62,6 +65,7 @@ header a{
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    height: 100%;
 }
 
 footer{
@@ -70,12 +74,13 @@ footer{
     text-align: center;
     color: white;
     margin-top: 20px;
-    padding: 10px;
     width: 100%;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
     font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
+    position: relative;
+    border-top: 2px solid #ffcc00;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
 }
 
 nav {
@@ -87,11 +92,15 @@ nav {
     margin: 20px auto;
     max-width: 1200px;
     padding: 20px;
-    background-color: #333;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     position: relative;
+    border: 2px solid #ffcc00; /* Border for the nav */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Shadow for the nav */
+    backdrop-filter: blur(10px); /* Optional: adds a blur effect to the background */
+    background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent background */
+    border-radius: 15px; /* Rounded corners for the nav */
 }
+
 
 nav a {
     color: #fff;
@@ -101,6 +110,7 @@ nav a {
     text-align: center;
     font-size: 25px;
     transition: background-color 0.5s ease;
+    font-weight: bold;
 }
 
 nav a:hover {
@@ -130,6 +140,7 @@ nav a:hover {
     max-width: 500px;
     margin: 20px auto;
     gap: 0;
+    position: relative;
 }
 
 .search-container input[type="text"] {
@@ -141,11 +152,11 @@ nav a:hover {
     outline: none;
     transition: border-color 0.3s;
     width: 100%;
-    
 }
 
 .search-container input[type="text"]:focus {
     border-color: #ffcc00;
+    box-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
 }
 
 .search-container button {
@@ -290,6 +301,12 @@ nav a:hover {
     border-radius: 10px;
     max-height: 800px;
     max-width: 700px;
+    overflow-y: auto;
+    position: relative;
+    border: 2px solid #ffcc00; /* Border for the anime info */
+    background-color: #f9f9f9; /* Light background for better contrast */
+    font-family: 'Arial', sans-serif;
+    color: #333;
 }
 
 .anime-info img {
@@ -303,7 +320,6 @@ nav a:hover {
 
 .anime-description h2 {
     font-size: 22px;
-    color: #333;
     margin-bottom: 10px;
 }
 
@@ -321,6 +337,11 @@ nav a:hover {
     width: 700px;
     text-align: center;
     max-height: 800px;
+    overflow-y: auto;
+    border: 2px solid #ffcc00; /* Border for the select section */
+    background-color: #f9f9f9; /* Light background for better contrast */
+    font-family: 'Arial', sans-serif;
+    color: #333;
 }
 
 .select label {
@@ -328,10 +349,19 @@ nav a:hover {
     font-size: 18px;
     margin: 10px 0 5px;
     color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    background-color: #333;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 
+
 .select select {
-    width: 70%;
+    width: 100%;
     padding: 10px;
     font-size: 16px;
     border-radius: 8px;
@@ -340,6 +370,7 @@ nav a:hover {
     background-color: #2e2e2e;
     color: #fff;
     transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 
 .select select:hover {
@@ -356,7 +387,60 @@ nav a:hover {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
+.anime-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+.anime-info p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #666;
+}
+.anime-info ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+.anime-info li {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #666;
+}
+
 /* Reszponzív beállítások */
+@media (max-width: 1200px) {
+    .anime-main {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .anime-info, .episode-section {
+        max-width: 100%;
+        padding: 10px;
+        margin: auto;
+    }
+    .anime-info h2 {
+        font-size: 20px;
+    }
+    .anime-info p {
+        font-size: 16px;
+    }
+    .anime-info ul {
+        font-size: 16px;
+    }
+    .anime-info li {
+        font-size: 16px;
+    }
+    .anime-info h3 {
+        font-size: 18px;
+    }
+    .anime-info img {
+        max-width: 90%;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }
+}
 @media (max-width: 1000px) {
     .anime-main {
         grid-template-columns: 1fr;
@@ -365,6 +449,7 @@ nav a:hover {
     .anime-info, .episode-section {
         max-width: 100%;
         padding: 10px;
+        margin: auto;
     }
     .anime-info h2 {
         font-size: 20px;
@@ -393,14 +478,45 @@ nav a:hover {
         margin: auto;
         padding: 10px;
     }
+    .select {
+        width: 100%;
+        padding: 15px;
+        margin: 0 auto;
+        max-height: 100%;
+        overflow-y: auto;
+    }
+    
+
+}
+@media screen and (max-width: 1200px) {
+    .anime-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+}
+@media (max-width: 900px) {
+    header h1 {
+        font-size: 50px;
+    }
+    nav {
+        grid-template-columns: repeat(2, auto);
+        gap: 10px;
+    }
+    nav a {
+        font-size: 20px;
+        padding: 8px 15px;
+    }
 }
 @media (max-width: 800px) {
     .anime-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-
     .anime-block {
+        width: 100%;
+        height: auto;
         padding: 15px;
     }
 
