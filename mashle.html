@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filip Anime Club</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="kepek/ICON.PNG.png">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Mashle: magic and muscles</h1>
+            <nav>
+                <a href="index.html">Főoldal</a>
+                <a href="#">Animék</a>
+                <a href="#">Kapcsolat</a>
+            </nav>
+            <img src="kepek/mashleposter2.png" alt="header">
+        </div>
+    </header>
+<main class="anime-main">
+    <div class="anime-info">
+        <img src="kepek/mashleposter4.png" alt="Bunny Girl Senpai">
+        <div class="anime-description">
+            <h2>Műfajok:</h2>
+            <p>Akció, Sci-Fi, Shounen</p>
+            <h2>Leírás:</h2>
+            <p>Egy világban, ahol a kaijuu-támadások mindennaposak, csak a Védelmi Erők képesek felvenni velük a harcot. Hibino Kafka, harmincas éveiben járó, kiégett férfi, a szörnyek tetemeinek takarításával tölti napjait, miközben arról álmodik, hogy egyszer ő is harcolhat. Amikor a fiatal Reno csatlakozik hozzájuk, Kafka önfeláldozása menti meg őket egy újabb támadás során. Ám a kórházban egy különös látogató mindent megváltoztat, és kezdetét veszi Kafka igazi története…</p>
+        </div>
+    </div>
+    <div class="select">
+        <label for="seasonSelect">Évad:</label>
+        <select id="seasonSelect" onchange="loadEpisodes()">
+            <option value="1">1. évad</option>
+            <!-- Itt lehet több évadot is hozzáadni -->
+        </select>
+
+        <label for="episodeSelect">Epizód:</label>
+        <select id="episodeSelect" onchange="loadVideo()">
+            <!-- Epizódok itt generálódnak -->
+        </select>
+
+        <iframe id="videoPlayer" src="" allowfullscreen></iframe>
+    </div>
+
+  <script>
+    const videoLinks = {
+      1: {
+        1: "//embed.indavideo.hu/player/video/6f72be3ecd", // Cseréld saját videa linkekre!
+        2: "//embed.indavideo.hu/player/video/dda5728153",
+        3: "//embed.indavideo.hu/player/video/c8c15ec749",
+        4: "//embed.indavideo.hu/player/video/3cf3e60ead",
+        5: "//embed.indavideo.hu/player/video/227f0cd195",
+        6: "//embed.indavideo.hu/player/video/818ff03add",
+        7: "//embed.indavideo.hu/player/video/0b7991695f",
+        8: "//embed.indavideo.hu/player/video/dd88c81537",
+        9: "//embed.indavideo.hu/player/video/dc95a8ce2d",
+        10: "//embed.indavideo.hu/player/video/7e5c76482a",
+        11: "//embed.indavideo.hu/player/video/5e1ab0e2f8",
+        12: "//embed.indavideo.hu/player/video/2280bd7548"
+      }
+    };
+
+    function loadEpisodes() {
+      const season = document.getElementById('seasonSelect').value;
+      const episodeSelect = document.getElementById('episodeSelect');
+      episodeSelect.innerHTML = '';
+      const episodes = videoLinks[season];
+      for (const ep in episodes) {
+        const option = document.createElement('option');
+        option.value = ep;
+        option.text = ep + '. rész';
+        episodeSelect.appendChild(option);
+      }
+      loadVideo(); // automatikusan betölti az elsőt
+    }
+
+    function loadVideo() {
+      const season = document.getElementById('seasonSelect').value;
+      const episode = document.getElementById('episodeSelect').value;
+      const videoUrl = videoLinks[season][episode];
+      document.getElementById('videoPlayer').src = videoUrl;
+    }
+
+    window.onload = loadEpisodes;
+  </script>
+</main>
+<footer>
+  <p>Filip Anime Club - Minden jog fenntartva</p>
+</footer>
+</body>
+</html>
