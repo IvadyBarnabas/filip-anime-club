@@ -20,28 +20,68 @@
         </div>
     </header>
 <main class="anime-main">
-    <div class="anime-info">
-        <img src="kepek/devilmaycry2025poster2.png" alt="Bunny Girl Senpai">
-        <div class="anime-description">
-            <h2>Műfajok:</h2>
-            <p>Akció, Fantasy </p>
-            <h2>Leírás:</h2>
-            <p>A történet középpontjában egy titokzatos gonosztevő, a Fehér Nyúl elleni harc áll, miközben Dante megpróbálja megvédeni mind az emberi, mind a démoni világot. A sorozat látványos animációval és intenzív harcjelenetekkel érkezik, így a játék rajongói mellett az akció kedvelőinek is izgalmas élményt nyújt.</p>
+  <div class="szereplok">
+        <h2>Szereplők:</h2>
+        <div class="cast">
+            <div class="character-block" id="Yuu">
+                <img src="szereplok/dante.png" alt="Yuu">
+                <h3>Dante</h3>
+            </div>
+            <div class="character-block" id="Kazuki">
+                <img src="szereplok/vergil.png" alt="Kazuki">
+                <h3>vergil</h3>
+            </div>
+            <div class="character-block" id="Niko">
+                <img src="szereplok/whiterabbit.png" alt="Niko">
+                <h3>White Rabbit</h3>
+            </div>
+            <div class="character-block" id="Miwa">
+                <img src="szereplok/lady.png" alt="Miwa">
+                <h3>"Lady"</h3>
+            </div>
         </div>
     </div>
-    <div class="select">
-        <label for="seasonSelect">Évad:</label>
-        <select id="seasonSelect" onchange="loadEpisodes()">
-            <option value="1">1. évad</option>
-            <!-- Itt lehet több évadot is hozzáadni -->
-        </select>
-
-        <label for="episodeSelect">Epizód:</label>
-        <select id="episodeSelect" onchange="loadVideo()">
-            <!-- Epizódok itt generálódnak -->
-        </select>
-
+    
+ <div class="anime-container">
+    <!-- BAL OLDAL: Videólejátszó -->
+    <div class="video-wrapper">
         <iframe id="videoPlayer" src="" allowfullscreen></iframe>
+    </div>
+
+    <!-- JOBB OLDAL: Választópanel + Leírás -->
+    <div class="info-panel">
+        <div class="select-panel">
+            <label for="seasonSelect">Évad:</label>
+            <select id="seasonSelect" onchange="loadEpisodes()">
+                <option value="1">1. évad</option>
+                <!-- Több évad is mehet ide -->
+            </select>
+
+            <label for="episodeSelect">Epizód:</label>
+            <select id="episodeSelect" onchange="loadVideo()">
+                <!-- Epizódok itt generálódnak -->
+            </select>
+        </div>
+
+        <div class="description">
+            <h3>Műfaj:</h3>
+            <p>Akció, Fantasy</p>
+            <h3>Korhatár:</h3>
+            <p>16+</p>
+            <h3>Epizódok: 12</h3>
+            <p>8 rész</p>
+            <h3>Megjelenés:</h3>
+            <p>2025: Április 3</p>
+            <h3>Stúdió:</h3>
+            <p>Mir / Netflix</p>
+        </div>
+    </div>
+</div>
+    <div class="anime-info">
+        <img src="kepek/devilmaycry2025poster2.png" alt="Devil May Cry 2025 Poster">
+        <div class="anime-description">
+            <h2>Az Anime Története:</h2>
+        </div>
     </div>
 
   <script>
